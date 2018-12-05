@@ -22,7 +22,7 @@ public class TestParseJsonWithPath {
             "        ],\n" +
             "    },\n" +
             "    \"expensive\": 10\n" +
-            "}"
+            "}";
 
         jsonPath = "$.store.book[?(@.price)].price";
         System.out.println("price<=90: " + parseJsonWithPath.evaluate(json, jsonPath));
