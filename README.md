@@ -2,29 +2,30 @@
 
 Common tools used in Hadoop or Hive.
 
-- How to build
+## How to build
 
 install local
 ```bash
 mvn install
 ```
 
-- Test Env:
-  - Hadoop-Core: 2.6.0
-  - Hadoop-Common: 2.6.0
+## Deps:
+  - Hadoop-Core: 2.6.0-mr1-cdh5.5.0
+  - Hadoop-Common: 2.6.0-cdh5.5.0
   - Hive: 2.1.1
 
-- APIs
-    - [ParseJsonWithPath](src/main/java/com/ntc/hive/udf/ParseJsonWithPath.java)
-        - hive UDF: parse json with given xpath. 
-        - A third-party [JsonPath](https://github.com/jayway/JsonPath) is used. Thanks a lot.
-    
-        - usage:
-        ```shell
-        ADD JAR your-path/ntc-funcs.jar;
-        CREATE TEMPORARY FUNCTION parseJsonWithPath AS 'com.ntc.hive.udf.ParseJsonWithPath';
-        ```
-         
+## APIs
+
+[ParseJsonWithPath](src/main/java/com/ntc/hive/udf/ParseJsonWithPath.java)
+  - hive UDF: parse json with given xpath. 
+  - A third-party [JsonPath](https://github.com/jayway/JsonPath) is used. Thanks a lot.
+
+  - usage:
+  ```shell
+  ADD JAR your-path/ntc-funcs.jar;
+  CREATE TEMPORARY FUNCTION parseJsonWithPath AS 'com.ntc.hive.udf.ParseJsonWithPath';
+  ```
+
         Operators
         ---------
         | Operator                  | Description                                                        |
@@ -38,13 +39,13 @@ mvn install
         | `[<number> (, <number>)]` | Array index or indexes                                             |
         | `[start:end]`             | Array slice operator                                               |
         | `[?(<expression>)]`       | Filter expression. Expression must evaluate to a boolean value.    |
-
+      
         Functions
         ---------
-
+      
         Functions can be invoked at the tail end of a path - the input to a function is the output of the path expression.
         The function output is dictated by the function itself.
-        
+      
         | Function                  | Description                                                        | Output    |
         | :------------------------ | :----------------------------------------------------------------- |-----------|
         | min()                     | Provides the min value of an array of numbers                      | Double    |
@@ -52,12 +53,12 @@ mvn install
         | avg()                     | Provides the average value of an array of numbers                  | Double    |
         | stddev()                  | Provides the standard deviation value of an array of numbers       | Double    |
         | length()                  | Provides the length of an array                                    | Integer   |
-
+      
         Filter Operators
         -----------------
-
+      
         Filters are logical expressions used to filter arrays. A typical filter would be `[?(@.age > 18)]` where `@` represents the current item being processed. More complex filters can be created with logical operators `&&` and `||`. String literals must be enclosed by single or double quotes (`[?(@.color == 'blue')]` or `[?(@.color == "blue")]`).   
-        
+      
         | Operator                 | Description                                                       |
         | :----------------------- | :---------------------------------------------------------------- |
         | ==                       | left is equal to right (note that 1 is not equal to '1')          |
@@ -72,11 +73,11 @@ mvn install
         | subsetof                 | left is a subset of right [?(@.sizes subsetof ['S', 'M', 'L'])]   |
         | size                     | size of left (array or string) should match right                 |
         | empty                    | left (array or string) should be empty                            |
-
+      
         Path Examples
         -------------
         Given the json
-
+      
         ```javascript
         {
             "store": {
@@ -116,7 +117,7 @@ mvn install
             "expensive": 10
         }
         ```
- 
+      
         | JsonPath (click link to try)                                                                                                                  | Result                                                       |
         | :-------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------- |
         | <a href="http://jsonpath.herokuapp.com/?path=$.store.book[*].author" target="_blank">$.store.book[*].author</a>                               | The authors of all books                                     |
@@ -137,22 +138,22 @@ mvn install
         | <a href="http://jsonpath.herokuapp.com/?path=$..*" target="_blank">$..*</a>                                                                   | Give me every thing                                          |
         | <a href="http://jsonpath.herokuapp.com/?path=$..book.length()" target="_blank">$..book.length()</a>                                           | The number of books                                          |
 
-        - more usage: see [JsonPath](https://github.com/jayway/JsonPath)
+  - more usage: see [JsonPath](https://github.com/jayway/JsonPath)
 
-      - [ArrayIntersect](src/main/java/com/ntc/hive/udf/ArrayIntersect.java)
-        - Computes the intersection of the array arguments.
-        
-        - usage:
-        ```shell
-        ADD JAR your-path/ntc-funcs.jar;
-        CREATE TEMPORARY FUNCTION ArrayIntersect AS 'com.ntc.hive.udf.ArrayIntersect';
-        ```
-      
-      - [LowerUpperCase](src/main/java/com/ntc/hive/udf/LowerUpperCase.java)
-        - Lower or upper array.
-        
-        - usage:
-        ```shell
-        ADD JAR your-path/ntc-funcs.jar;
-        CREATE TEMPORARY FUNCTION LowerUpperCase AS 'com.ntc.hive.udf.LowerUpperCase';
-        ```
+[ArrayIntersect](src/main/java/com/ntc/hive/udf/ArrayIntersect.java)
+  - Computes the intersection of the array arguments.
+
+  - usage:
+  ```shell
+  ADD JAR your-path/ntc-funcs.jar;
+  CREATE TEMPORARY FUNCTION ArrayIntersect AS 'com.ntc.hive.udf.ArrayIntersect';
+  ```
+
+[LowerUpperCase](src/main/java/com/ntc/hive/udf/LowerUpperCase.java)
+  - Lower or upper array.
+
+  - usage:
+  ```shell
+  ADD JAR your-path/ntc-funcs.jar;
+  CREATE TEMPORARY FUNCTION LowerUpperCase AS 'com.ntc.hive.udf.LowerUpperCase';
+  ```
