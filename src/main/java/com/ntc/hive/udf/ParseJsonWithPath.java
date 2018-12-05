@@ -1,11 +1,5 @@
 package com.ntc.hive.udf;
 
-/**
- * Copyright @2015 R&D, NTC Inc. (ntc.com)
- *
- * Author: Eric x.sun <eric.x.sun@gmail.com>
- */
-
 import com.alibaba.fastjson.JSON;
 import com.jayway.jsonpath.JsonPath;
 import org.apache.hadoop.hive.ql.exec.Description;
@@ -17,9 +11,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Copyright @2015 R&D, NTC Inc. (ntc.com)
+ *
+ * Author: Eric x.sun <eric.x.sun@gmail.com>
+ */
+
+
 @Description(name = "ParseJsonWithPath",
     value = "_FUNC_(jsonString, jsonPath) - Returns the queried result matched the given jsonPath, in Array format.")
-
 public class ParseJsonWithPath extends UDF {
     static class HashCache<K, V> extends LinkedHashMap<K, V> {
         private static final int CACHE_SIZE = 16;

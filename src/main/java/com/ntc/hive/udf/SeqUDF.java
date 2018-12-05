@@ -7,13 +7,7 @@ import org.apache.hadoop.hive.ql.exec.UDFArgumentException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by tyler.li on 2015/12/3.
- */
-@Description(
-        name = "seq",
-        value = "Return a list of numbers from FIRST to LAST, in steps of INCREMENT."
-)
+@Description(name = "seq", value = "Return a list of numbers from FIRST to LAST, in steps of INCREMENT.")
 public class SeqUDF extends UDF {
     public List<Integer> evaluate(Object lastText) throws UDFArgumentException {
         int first = 1;
@@ -36,7 +30,7 @@ public class SeqUDF extends UDF {
     }
 
     private List<Integer> process(int first, int step, int last) {
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
         /*step不能为0*/
         if (step == 0) {
             return list;
