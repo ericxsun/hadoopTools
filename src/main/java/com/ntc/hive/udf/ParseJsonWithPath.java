@@ -3,7 +3,7 @@ package com.ntc.hive.udf;
 /**
  * Copyright @2015 R&D, NTC Inc. (ntc.com)
  *
- * Author: Eric x.sun <followyourheart1211@gmail.com>
+ * Author: Eric x.sun <eric.x.sun@gmail.com>
  */
 
 import com.alibaba.fastjson.JSON;
