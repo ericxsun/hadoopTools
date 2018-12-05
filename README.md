@@ -4,15 +4,14 @@ Common tools used in Hadoop or Hive.
 
 ## How to build
 
-install local
 ```bash
-mvn install
+mvn package
 ```
 
-## Deps:
-  - Hadoop-Core: 2.6.0-mr1-cdh5.5.0
-  - Hadoop-Common: 2.6.0-cdh5.5.0
-  - Hive: 2.1.1
+## Test Env:
+  - Hadoop-Core: 2.6.0-mr1-cdh5.5.0 (provided)
+  - Hadoop-Common: 2.6.0-cdh5.5.0 (provided)
+  - Hive: 2.1.1 (provided)
 
 ## APIs
 
@@ -22,7 +21,7 @@ mvn install
 
   - usage:
   ```shell
-  ADD JAR your-path/ntc-funcs.jar;
+  ADD JAR your-path/uber-ntc-funcs-${version};
   CREATE TEMPORARY FUNCTION parseJsonWithPath AS 'com.ntc.hive.udf.ParseJsonWithPath';
   
   SELECT parseJsonWithPath(jsonStr, jsonPath) FROM table
@@ -144,7 +143,7 @@ mvn install
 
   - usage:
   ```shell
-  ADD JAR your-path/ntc-funcs.jar;
+  ADD JAR your-path/uber-ntc-funcs-${version};
   CREATE TEMPORARY FUNCTION arrayIntersect AS 'com.ntc.hive.udf.ArrayIntersect';
   
   SELECT arrayIntersect(arr1, arr2) FROM table
@@ -155,7 +154,7 @@ mvn install
 
   - usage:
   ```shell
-  ADD JAR your-path/ntc-funcs.jar;
+  ADD JAR your-path/uber-ntc-funcs-${version}.jar;
   CREATE TEMPORARY FUNCTION lowerUpperCase AS 'com.ntc.hive.udf.LowerUpperCase';
   
   -- true means lower-case, false mean upper-case
