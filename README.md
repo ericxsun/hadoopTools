@@ -145,9 +145,9 @@ mvn install
   - usage:
   ```shell
   ADD JAR your-path/ntc-funcs.jar;
-  CREATE TEMPORARY FUNCTION ArrayIntersect AS 'com.ntc.hive.udf.ArrayIntersect';
+  CREATE TEMPORARY FUNCTION arrayIntersect AS 'com.ntc.hive.udf.ArrayIntersect';
   
-  SELECT ArrayIntersect(arr1, arr2) FROM table
+  SELECT arrayIntersect(arr1, arr2) FROM table
   ```
 
 [LowerUpperCase](src/main/java/com/ntc/hive/udf/LowerUpperCase.java)
@@ -156,9 +156,9 @@ mvn install
   - usage:
   ```shell
   ADD JAR your-path/ntc-funcs.jar;
-  CREATE TEMPORARY FUNCTION LowerUpperCase AS 'com.ntc.hive.udf.LowerUpperCase';
+  CREATE TEMPORARY FUNCTION lowerUpperCase AS 'com.ntc.hive.udf.LowerUpperCase';
   
   -- true means lower-case, false mean upper-case
-  SELECT LowerUpperCase(field, false) FROM table
-  SELECT LowerUpperCase(field, true) FROM table
+  SELECT lowerUpperCase(field, false) FROM table
+  SELECT lowerUpperCase(field, true) FROM table
   ```
