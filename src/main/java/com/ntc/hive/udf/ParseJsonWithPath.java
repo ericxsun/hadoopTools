@@ -17,10 +17,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@Description(
-        name = "ParseJsonWithPath",
-        value = "_FUNC_(jsonString, jsonPath) - Returns the queried result matched the given jsonPath, in Array format."
-)
+@Description(name = "ParseJsonWithPath",
+    value = "_FUNC_(jsonString, jsonPath) - Returns the queried result matched the given jsonPath, in Array format.")
+
 public class ParseJsonWithPath extends UDF {
     static class HashCache<K, V> extends LinkedHashMap<K, V> {
         private static final int CACHE_SIZE = 16;
