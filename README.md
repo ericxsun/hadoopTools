@@ -161,3 +161,17 @@ mvn package
   SELECT lowerUpperCase(field, false) FROM table
   SELECT lowerUpperCase(field, true) FROM table
   ```
+
+[RegexpExtractAll](src/main/java/com/ntc/hive/udf/RegexpExtractAll.java)
+  - regex extract all.
+
+  - usage:
+  ```shell
+  ADD JAR your-path/uber-ntc-funcs-${version}.jar;
+  CREATE TEMPORARY FUNCTION regexpExtractAll AS 'com.ntc.hive.udf.RegexpExtractAll';
+  
+  SELECT regexpExtractAll(field, regex, index) FROM table
+  
+  -- index default = 0
+  SELECT regexpExtractAll(field, regex) FROM table
+  ```

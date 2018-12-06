@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ntc</groupId>
     <artifactId>ntc-funcs</artifactId>
-    <version>2.0</version>
+    <version>3.0</version>
 
     <repositories>
         <repository>
