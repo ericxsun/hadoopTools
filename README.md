@@ -21,7 +21,7 @@ mvn package
 
   - usage:
   ```shell
-  ADD JAR your-path/uber-ntc-funcs-${version};
+  ADD JAR your-path/uber-ntc-funcs-${version}.jar;
   CREATE TEMPORARY FUNCTION parseJsonWithPath AS 'com.ntc.hive.udf.ParseJsonWithPath';
   
   SELECT parseJsonWithPath(jsonStr, jsonPath) FROM table
@@ -42,7 +42,7 @@ mvn package
     | `[?(<expression>)]`       | Filter expression. Expression must evaluate to a boolean value.    |
       
   - Functions in jsonPath
- 
+
     Functions can be invoked at the tail end of a path - the input to a function is the output of the path expression. The function output is dictated by the function itself.
       
     | Function                  | Description                                                        | Output    |
@@ -56,7 +56,7 @@ mvn package
   - Filter Operators in jsonPath
 
     Filters are logical expressions used to filter arrays. A typical filter would be `[?(@.age > 18)]` where `@` represents the current item being processed. More complex filters can be created with logical operators `&&` and `||`. String literals must be enclosed by single or double quotes (`[?(@.color == 'blue')]` or `[?(@.color == "blue")]`).   
-      
+
     | Operator                 | Description                                                       |
     | :----------------------- | :---------------------------------------------------------------- |
     | ==                       | left is equal to right (note that 1 is not equal to '1')          |
@@ -71,11 +71,11 @@ mvn package
     | subsetof                 | left is a subset of right [?(@.sizes subsetof ['S', 'M', 'L'])]   |
     | size                     | size of left (array or string) should match right                 |
     | empty                    | left (array or string) should be empty                            |
-      
+
   - Path Examples
 
     Given the json
-      
+
     ```javascript
     {
         "store": {
@@ -115,7 +115,7 @@ mvn package
         "expensive": 10
     }
     ```
-      
+
     | JsonPath (click link to try)                                                                                                                  | Result                                                       |
     | :-------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------- |
     | <a href="http://jsonpath.herokuapp.com/?path=$.store.book[*].author" target="_blank">$.store.book[*].author</a>                               | The authors of all books                                     |
@@ -143,7 +143,7 @@ mvn package
 
   - usage:
   ```shell
-  ADD JAR your-path/uber-ntc-funcs-${version};
+  ADD JAR your-path/uber-ntc-funcs-${version}.jar;
   CREATE TEMPORARY FUNCTION arrayIntersect AS 'com.ntc.hive.udf.ArrayIntersect';
   
   SELECT arrayIntersect(arr1, arr2) FROM table
