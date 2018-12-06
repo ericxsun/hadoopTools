@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 
 
 @Description(name = "regexpExtractAll",
-    value = "_FUNC_(haystack, pattern, [index]) - Find all the instances of pattern in haystack.")
+    value = "_FUNC_(string, pattern, [index]) - Find all the instances of pattern in haystack.")
 public class RegexpExtractAll extends UDF {
     private String lastRegex = null;
     private Pattern p = null;
