@@ -14,7 +14,7 @@ import java.util.HashSet;
  */
 
 
-@Description(name = "ArrayIntersect",
+@Description(name = "arrayIntersect",
     value = "_FUNC_(values) - Computes the intersection of the array arguments.  Note that ordering will be lost.")
 public class ArrayIntersect extends UDF {
     public ArrayList<Text> evaluate(ArrayList<Text>... arrays) {

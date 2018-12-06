@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 
 
-@Description(name = "LowerCase", value = "_FUNC_(values, isLower) - lower or upper the elements.")
+@Description(name = "lowerUpperCase", value = "_FUNC_(values, isLower) - lower or upper the elements.")
 public class LowerUpperCase extends UDF {
     public ArrayList<String> evaluate(ArrayList<String> words, Boolean isLower) {
         ArrayList<String> casedWords = new ArrayList<>();

@@ -3,8 +3,8 @@ package com.ntc.hive.udf;
 import com.alibaba.fastjson.JSON;
 import com.jayway.jsonpath.JsonPath;
 import org.apache.hadoop.hive.ql.exec.Description;
-import org.apache.hadoop.io.Text;
 import org.apache.hadoop.hive.ql.exec.UDF;
+import org.apache.hadoop.io.Text;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -18,7 +18,7 @@ import java.util.Map;
  */
 
 
-@Description(name = "ParseJsonWithPath",
+@Description(name = "parseJsonWithPath",
     value = "_FUNC_(jsonString, jsonPath) - Returns the queried result matched the given jsonPath, in Array format.")
 public class ParseJsonWithPath extends UDF {
     static class HashCache<K, V> extends LinkedHashMap<K, V> {
