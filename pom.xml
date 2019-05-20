@@ -148,6 +148,6 @@
         <java.version>1.7</java.version>
         <hadoop.core.version>2.6.0-mr1-cdh5.5.0</hadoop.core.version>
         <hadoop.common.version>2.6.0-cdh5.5.0</hadoop.common.version>
-        <hive.exec.version>2.1.1</hive.exec.version>
+        <hive.exec.version>[2.1.2,)</hive.exec.version>
     </properties>
 </project>
